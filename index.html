@@ -53,6 +53,8 @@
 				platform2.body.bounce.setTo(1, 1);
 				platform2.body.collideWorldBounds = true;
 
+				sun = game.add.sprite(285, 163, 'sun');
+				sun.body.immovable = true;
 
 				player = game.add.sprite(32, game.world.height - 200, 'cat');
 				player.body.bounce.setTo(0.99999, 0.99999);
