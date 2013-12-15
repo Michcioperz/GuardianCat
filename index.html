@@ -14,6 +14,7 @@
 			var cursors;
 			var platform1;
 			var platform2;
+			var sky;
 			function preload() {
 				game.load.image('bg', 'bg.jpg');
 				game.load.image('cat', 'cat.png');
@@ -23,7 +24,7 @@
 			}
 			function create() {
 				game.world.setBounds(0, 0, 800, 3200);
-				game.add.tileSprite(0, 0, 800, 3200, 'sky');
+				sky = game.add.tileSprite(0, 0, 800, 3200, 'sky');
 
 				cursors = game.input.keyboard.createCursorKeys();
 
