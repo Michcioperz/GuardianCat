@@ -12,13 +12,13 @@
 			function preload() {
 				game.load.image('bg', 'bg.jpg');
 				game.load.image('cat', 'cat.png');
-				game.load.image('gr', 'gr.jpg');
+				game.load.image('gr', 'gr.png');
 			}
 			function create() {
 				game.add.sprite(0, 0, 'bg');
 				platforms = game.add.group();
 				var ground = platforms.create(0, game.world.height - 100, 'ground');
-				ground.scale.setTo(8, 1);
+				ground.scale.setTo(1, 1);
 				ground.body.immovable = true;
 			}
 			function update() {
