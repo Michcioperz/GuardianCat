@@ -51,15 +51,11 @@
 				platform2.body.bounce.setTo(1, 1);
 				platform2.body.collideWorldBounds = true;
 
-				sun = game.add.sprite(285, 163, 'sun');
-				sun.body.immovable = true;
-				sun.animations.add('portal', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19], 10, true);
-
 				player = game.add.sprite(32, game.world.height - 200, 'cat');
 				player.body.bounce.setTo(0.99999, 0.99999);
 				player.body.collideWorldBounds = true;
 				player.body.gravity.y = 4;
-				game.camera.follow(player, Phaser.Camera.FOLLOW_TOPDOWN_TIGHT);
+				game.camera.follow(player);
 			}
 			function update() {
 				game.physics.collide(player, platforms);
