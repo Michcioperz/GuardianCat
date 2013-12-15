@@ -8,13 +8,18 @@
 	<body>
 		<script type="text/javascript">
 			var game = new Phaser.Game(800, 600, Phaser.AUTO, '', {preload: preload, create: create, update: update});
+			var platforms;
 			function preload() {
 				game.load.image('bg', 'bg.jpg');
 				game.load.image('cat', 'cat.png');
+				game.load.image('gr', 'gr.jpg');
 			}
 			function create() {
 				game.add.sprite(0, 0, 'bg');
-				game.add.sprite(400, 300, 'cat');
+				platforms = game.add.group();
+				var ground = platforms.create(0, game.world.height - 100, 'ground');
+				ground.scale.setTo(8, 1);
+				ground.body.immovable = true;
 			}
 			function update() {
 				
