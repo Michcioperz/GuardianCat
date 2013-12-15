@@ -14,7 +14,6 @@
 			var cursors;
 			var platform1;
 			var platform2;
-			var sun;
 			function preload() {
 				game.load.image('bg', 'bg.jpg');
 				game.load.image('cat', 'cat.png');
@@ -63,7 +62,6 @@
 				game.physics.collide(platforms, lolforms);
 				game.physics.collide(platform1, platform2);
 				game.physics.overlap(player, sun, catchPortal);
-				sun.animations.play('portal');
 				if (cursors.left.isDown) {
 					player.body.velocity.x += -10;
 				}
