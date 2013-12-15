@@ -43,14 +43,14 @@
 				lolforms = game.add.group();
 
 				platform1 = lolforms.create(500, game.world.height - 150, 'gr');
-				ground.scale.setTo(1, 1);
-				ground.body.bounce.setTo(1, 1);
-				ground.body.collideWorldBounds = true;
+				platform1.scale.setTo(1, 1);
+				platform1.body.bounce.setTo(1, 1);
+				platform1.body.collideWorldBounds = true;
 
 				platform2 = lolforms.create(300, game.world.height - 300, 'gr');
-				ground.scale.setTo(1, 1);
-				ground.body.bounce.setTo(1, 1);
-				ground.body.collideWorldBounds = true;
+				platform2.scale.setTo(1, 1);
+				platform2.body.bounce.setTo(1, 1);
+				platform2.body.collideWorldBounds = true;
 
 
 				player = game.add.sprite(32, game.world.height - 200, 'cat');
