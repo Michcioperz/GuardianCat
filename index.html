@@ -18,6 +18,7 @@
 				game.load.image('bg', 'bg.jpg');
 				game.load.image('cat', 'cat.png');
 				game.load.image('gr', 'gr.png');
+				game.load.image('pl', 'pl.png');
 			}
 			function create() {
 				cursors = game.input.keyboard.createCursorKeys();
@@ -42,12 +43,12 @@
 
 				lolforms = game.add.group();
 
-				platform1 = lolforms.create(500, game.world.height - 150, 'gr');
+				platform1 = lolforms.create(500, game.world.height - 150, 'pl');
 				platform1.scale.setTo(1, 1);
 				platform1.body.bounce.setTo(1, 1);
 				platform1.body.collideWorldBounds = true;
 
-				platform2 = lolforms.create(300, game.world.height - 300, 'gr');
+				platform2 = lolforms.create(300, game.world.height - 300, 'pl');
 				platform2.scale.setTo(1, 1);
 				platform2.body.bounce.setTo(1, 1);
 				platform2.body.collideWorldBounds = true;
