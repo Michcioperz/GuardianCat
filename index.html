@@ -18,60 +18,81 @@
 			}
 			function create() {
 				cursors = game.input.keyboard.createCursorKeys();
+
 				game.add.sprite(0, 0, 'bg');
+
 				platforms = game.add.group();
+
 				var ground = platforms.create(-50, game.world.height - 50, 'gr');
 				ground.scale.setTo(1, 1);
 				ground.body.immovable = true;
+
 				ground = platforms.create(0, game.world.height - 50, 'gr');
 				ground.scale.setTo(1, 1);
 				ground.body.immovable = true;
+
 				ground = platforms.create(50, game.world.height - 50, 'gr');
 				ground.scale.setTo(1, 1);
 				ground.body.immovable = true;
+
 				ground = platforms.create(100, game.world.height - 50, 'gr');
 				ground.scale.setTo(1, 1);
 				ground.body.immovable = true;
+
 				ground = platforms.create(150, game.world.height - 50, 'gr');
 				ground.scale.setTo(1, 1);
 				ground.body.immovable = true;
+
 				ground = platforms.create(200, game.world.height - 50, 'gr');
 				ground.scale.setTo(1, 1);
 				ground.body.immovable = true;
+
 				ground = platforms.create(250, game.world.height - 50, 'gr');
 				ground.scale.setTo(1, 1);
 				ground.body.immovable = true;
+
 				ground = platforms.create(300, game.world.height - 50, 'gr');
 				ground.scale.setTo(1, 1);
 				ground.body.immovable = true;
+
 				ground = platforms.create(350, game.world.height - 50, 'gr');
 				ground.scale.setTo(1, 1);
 				ground.body.immovable = true;
+
 				ground = platforms.create(400, game.world.height - 50, 'gr');
 				ground.scale.setTo(1, 1);
 				ground.body.immovable = true;
+
 				ground = platforms.create(450, game.world.height - 50, 'gr');
 				ground.scale.setTo(1, 1);
 				ground.body.immovable = true;
+
 				ground = platforms.create(500, game.world.height - 50, 'gr');
 				ground.scale.setTo(1, 1);
 				ground.body.immovable = true;
+
 				ground = platforms.create(550, game.world.height - 50, 'gr');
 				ground.scale.setTo(1, 1);
 				ground.body.immovable = true;
+
 				ground = platforms.create(600, game.world.height - 50, 'gr');
 				ground.scale.setTo(1, 1);
 				ground.body.immovable = true;
+
 				ground = platforms.create(650, game.world.height - 50, 'gr');
 				ground.scale.setTo(1, 1);
 				ground.body.immovable = true;
+
 				ground = platforms.create(700, game.world.height - 50, 'gr');
 				ground.scale.setTo(1, 1);
 				ground.body.immovable = true;
+
 				ground = platforms.create(750, game.world.height - 50, 'gr');
 				ground.scale.setTo(1, 1);
 				ground.body.immovable = true;
 				ground = platforms.create(500, game.world.height - 150, 'gr');
+
+
 				ground.scale.setTo(1, 1);
 				ground.body.bounce.setTo(1, 1);
 				ground.body.collideWorldBounds = true;
@@ -79,6 +100,8 @@
 				ground.scale.setTo(1, 1);
 				ground.body.bounce.setTo(1, 1);
 				ground.body.collideWorldBounds = true;
+
+
 				player = game.add.sprite(32, game.world.height - 150, 'cat');
 				player.body.bounce.setTo(0.99999, 0.99999);
 				player.body.gravity.y = 4;
