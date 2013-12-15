@@ -12,6 +12,8 @@
 			var lolforms;
 			var player;
 			var cursors;
+			var platform1;
+			var platform2;
 			function preload() {
 				game.load.image('bg', 'bg.jpg');
 				game.load.image('cat', 'cat.png');
@@ -48,12 +50,12 @@
 
 				lolforms = game.add.group();
 
-				ground = lolforms.create(500, game.world.height - 150, 'gr');
+				platform1 = lolforms.create(500, game.world.height - 150, 'gr');
 				ground.scale.setTo(1, 1);
 				ground.body.bounce.setTo(1, 1);
 				ground.body.collideWorldBounds = true;
 
-				ground = lolforms.create(300, game.world.height - 300, 'gr');
+				platform2 = lolforms.create(300, game.world.height - 300, 'gr');
 				ground.scale.setTo(1, 1);
 				ground.body.bounce.setTo(1, 1);
 				ground.body.collideWorldBounds = true;
@@ -67,6 +69,7 @@
 				game.physics.collide(player, platforms);
 				game.physics.collide(player, lolforms);
 				game.physics.collide(platforms, lolforms);
+				game.physics.collide(platform1, platform2);
 				if (cursors.left.isDown) {
 					player.body.velocity.x += -10;
 				}
