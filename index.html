@@ -20,7 +20,7 @@
 				game.load.image('cat', 'cat.png');
 				game.load.image('gr', 'gr.png');
 				game.load.image('pl', 'pl.png');
-				game.load.image('sun', 'sun.gif');
+				game.load.spritesheet('sun', 'sun.png', 180, 180);
 			}
 			function create() {
 				cursors = game.input.keyboard.createCursorKeys();
@@ -57,6 +57,7 @@
 
 				sun = game.add.sprite(285, 163, 'sun');
 				sun.body.immovable = true;
+				sun.animations.add('portal', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19], 10, true);
 
 				player = game.add.sprite(32, game.world.height - 200, 'cat');
 				player.body.bounce.setTo(0.99999, 0.99999);
@@ -69,6 +70,7 @@
 				game.physics.collide(platforms, lolforms);
 				game.physics.collide(platform1, platform2);
 				game.physics.overlap(player, sun, catchPortal);
+				sun.animations.play('portal');
 				if (cursors.left.isDown) {
 					player.body.velocity.x += -10;
 				}
