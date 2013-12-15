@@ -16,7 +16,6 @@
 			var platform2;
 			var sky;
 			function preload() {
-				game.load.image('bg', 'bg.jpg');
 				game.load.image('cat', 'cat.png');
 				game.load.image('gr', 'gr.png');
 				game.load.image('pl', 'pl.png');
@@ -24,11 +23,9 @@
 			}
 			function create() {
 				game.world.setBounds(0, 0, 800, 3200);
-				sky = game.add.tileSprite(0, 0, 800, 3200, 'sky');
+				sky = game.add.sprite(0, 0, 800, 3200, 'sky');
 
 				cursors = game.input.keyboard.createCursorKeys();
-
-				game.add.sprite(game.world.height-800, 0, 'bg');
 
 				platforms = game.add.group();
 
