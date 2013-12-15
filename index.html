@@ -20,7 +20,6 @@
 				game.load.image('gr', 'gr.png');
 				game.load.image('pl', 'pl.png');
 				game.load.image('sky', 'sky.jpg');
-				game.load.spritesheet('sun', 'sun.png', 180, 180);
 			}
 			function create() {
 				game.world.setBounds(0, 0, 800, 3000);
@@ -61,7 +60,6 @@
 				game.physics.collide(player, lolforms);
 				game.physics.collide(platforms, lolforms);
 				game.physics.collide(platform1, platform2);
-				game.physics.overlap(player, sun, catchPortal);
 				if (cursors.left.isDown) {
 					player.body.velocity.x += -10;
 				}
