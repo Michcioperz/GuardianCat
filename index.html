@@ -9,6 +9,7 @@
 		<script type="text/javascript">
 			var game = new Phaser.Game(800, 600, Phaser.AUTO, '', {preload: preload, create: create, update: update});
 			var platforms;
+			var lolforms;
 			var player;
 			var cursors;
 			function preload() {
@@ -90,13 +91,15 @@
 				ground = platforms.create(750, game.world.height - 50, 'gr');
 				ground.scale.setTo(1, 1);
 				ground.body.immovable = true;
-				ground = platforms.create(500, game.world.height - 150, 'gr');
 
+				lolforms = game.add.group();
 
+				ground = lolforms.create(500, game.world.height - 150, 'gr');
 				ground.scale.setTo(1, 1);
 				ground.body.bounce.setTo(1, 1);
 				ground.body.collideWorldBounds = true;
-				ground = platforms.create(300, game.world.height - 300, 'gr');
+
+				ground = lolforms.create(300, game.world.height - 300, 'gr');
 				ground.scale.setTo(1, 1);
 				ground.body.bounce.setTo(1, 1);
 				ground.body.collideWorldBounds = true;
@@ -108,6 +111,8 @@
 			}
 			function update() {
 				game.physics.collide(player, platforms);
+				game.physics.collide(player, lolforms);
+				game.physics.collide(platforms, lolforms);
 				if (cursors.left.isDown) {
 					player.body.velocity.x += -100;
 				} else if (cursors.right.isDown) {
