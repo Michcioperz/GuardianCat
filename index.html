@@ -63,6 +63,8 @@
 				player.body.bounce.setTo(0.99999, 0.99999);
 				player.body.collideWorldBounds = true;
 				player.body.gravity.y = 4;
+				game.camera.follow(player, Phaser.Camera.FOLLOW_TOPDOWN_TIGHT);
+				game.world.setBounds(0, -8000, 800, 600);
 			}
 			function update() {
 				game.physics.collide(player, platforms);
