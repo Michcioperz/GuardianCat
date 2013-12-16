@@ -11,11 +11,11 @@
 	</head>
 	<body>
 		<div class="container">
-			<div id="splash" style="width: 800px; height: 600px; background-image: url('cat-full.png'); background-size: 800px 600px; background-repeat: no-repeat;">
+			<div id="splash" style="width: 800px; height: 600px; background-color: light-gray;"><div style="background-image: url('cat-full.png'); background-size: 800px 600px; background-repeat: no-repeat;">
 				<div class="progress progress-striped active">
 					<div class="progress-bar" id="progbar" role="progressbar" style="width: 0%"></div>
 				</div>
-			</div>
+			</div></div>
 			<div id="gameframe" style="width: 800px; height: 600px; display:none;">
 			</div>
 
@@ -79,8 +79,8 @@
 				player.body.collideWorldBounds = true;
 				player.body.gravity.y = 3;
 				game.camera.follow(player);
-				$('#splash').hide();
-				$('#gameframe').show();
+				$('#splash').slideUp();
+				$('#gameframe').slideDown();
 			}
 			function update() {
 				game.physics.collide(player, platforms);
