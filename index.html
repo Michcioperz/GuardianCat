@@ -16,7 +16,7 @@
 			var platform2;
 			var sky;
 			function preload() {
-				game.load.image('catsht', 'cat.png');
+				game.load.spritesheet('catsht', 'cat.png', 75, 46);
 				game.load.image('gr', 'gr.png');
 				game.load.image('pl', 'pl.png');
 				game.load.image('sky', 'sky.png');
@@ -56,7 +56,7 @@
 				platform2.body.bounce.setTo(1, 1);
 				platform2.body.collideWorldBounds = true;
 
-				player = game.add.sprite(32, game.world.height - 200, 'catsht', 75, 46);
+				player = game.add.sprite(32, game.world.height - 200, 'catsht');
 				player.animations.add('left', [0], 10, true);
 				player.animations.add('right', [1], 10, true);
 				player.body.bounce.setTo(0.04, 0.04);
