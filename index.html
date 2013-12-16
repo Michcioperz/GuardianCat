@@ -116,6 +116,7 @@
 				game.physics.collide(player, platforms);
 				game.physics.collide(player, upforms, upShot, null, this);
 				game.physics.collide(platforms, upforms);
+				player.body.velocity.x = player.body.velocity.x / 3;
 				if (cursors.left.isDown) {
 					player.body.velocity.x += -5;
 					player.animations.play('left');
