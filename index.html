@@ -20,7 +20,7 @@
 			</div>
 
 		<script type="text/javascript">
-			var game = new Phaser.Game(800, 600, Phaser.AUTO, '#gameframe', {preload: preload, create: create, update: update});
+			var game = new Phaser.Game(800, 600, Phaser.AUTO, document.getElementById('gameframe'), {preload: preload, create: create, update: update});
 			var platforms;
 			var player;
 			var cursors;
