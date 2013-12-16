@@ -46,12 +46,12 @@
 
 				temp = upforms.create(500, game.world.height - 150, 'plup');
 				temp.scale.setTo(1, 1);
-				temp.body.bounce.setTo(1, 1);
+				temp.body.immovable = true;
 				temp.body.collideWorldBounds = true;
 
 				temp = upforms.create(300, game.world.height - 450, 'plup');
 				temp.scale.setTo(1, 1);
-				temp.body.bounce.setTo(1, 1);
+				temp.body.immovable = true;
 				temp.body.collideWorldBounds = true;
 
 				player = game.add.sprite(32, game.world.height - 200, 'catsht');
@@ -65,7 +65,7 @@
 			function update() {
 				game.physics.collide(player, platforms);
 				game.physics.collide(player, upforms);
-				game.physics.collide(platforms, upforms);
+				game.physics.collide(platforms, upforms, upShot);
 				if (cursors.left.isDown) {
 					player.body.velocity.x += -10;
 					player.animations.play('left');
@@ -78,6 +78,9 @@
 					if (player.body.touching.down)
 						player.body.velocity.y += -230;
 				}
+			}
+			function upShot() {
+				player.body.velocity.y += -300;
 			}
 		</script>
 	</body>
