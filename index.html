@@ -118,11 +118,11 @@
 				game.physics.collide(platforms, upforms);
 				player.body.velocity.x = player.body.velocity.x / 3;
 				if (cursors.left.isDown) {
-					player.body.velocity.x += -5;
+					player.body.velocity.x += -25;
 					player.animations.play('left');
 				}
 				if (cursors.right.isDown) {
-					player.body.velocity.x += 5;
+					player.body.velocity.x += 25;
 					player.animations.play('right');
 				}
 				if (cursors.up.isDown) {
