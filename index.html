@@ -16,7 +16,7 @@
 			var platform2;
 			var sky;
 			function preload() {
-				game.load.image('cat', 'cat.png');
+				game.load.image('catsht', 'catsht.png');
 				game.load.image('gr', 'gr.png');
 				game.load.image('pl', 'pl.png');
 				game.load.image('sky', 'sky.png');
@@ -56,7 +56,9 @@
 				platform2.body.bounce.setTo(1, 1);
 				platform2.body.collideWorldBounds = true;
 
-				player = game.add.sprite(32, game.world.height - 200, 'cat');
+				player = game.add.sprite(32, game.world.height - 200, 'catsht', 75, 46);
+				player.animations.add('left', [0], 10, true);
+				player.animations.add('right', [1], 10, true);
 				player.body.bounce.setTo(0.04, 0.04);
 				player.body.collideWorldBounds = true;
 				player.body.gravity.y = 3;
@@ -68,9 +70,11 @@
 				game.physics.collide(platforms, lolforms);
 				if (cursors.left.isDown) {
 					player.body.velocity.x += -10;
+					player.animations.play('left');
 				}
 				if (cursors.right.isDown) {
 					player.body.velocity.x += 10;
+					player.animations.play('right');
 				}
 				if (cursors.up.isDown) {
 					if (player.body.touching.down)
