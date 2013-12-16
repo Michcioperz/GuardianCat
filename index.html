@@ -9,16 +9,14 @@
 		<script type="text/javascript">
 			var game = new Phaser.Game(800, 600, Phaser.AUTO, '', {preload: preload, create: create, update: update});
 			var platforms;
-			var lolforms;
 			var player;
 			var cursors;
-			var platform1;
-			var platform2;
+			var upforms;
 			var sky;
 			function preload() {
 				game.load.spritesheet('catsht', 'cat.png', 75, 46);
 				game.load.image('gr', 'gr.png');
-				game.load.image('pl', 'pl.png');
+				game.load.image('plup', 'plup.png');
 				game.load.image('sky', 'sky.png');
 				game.load.image('lm', 'lm.png');
 			}
@@ -30,31 +28,31 @@
 
 				platforms = game.add.group();
 
-				var ground;
+				var temp;
 
-				ground = platforms.create(0, game.world.height - 50, 'gr');
-				ground.scale.setTo(8, 1);
-				ground.body.immovable = true;
+				temp = platforms.create(0, game.world.height - 50, 'gr');
+				temp.scale.setTo(8, 1);
+				temp.body.immovable = true;
 
-				ground = platforms.create(400, game.world.height - 500, 'lm');
-				ground.scale.setTo(4, 1);
-				ground.body.immovable = true;
+				temp = platforms.create(400, game.world.height - 500, 'lm');
+				temp.scale.setTo(4, 1);
+				temp.body.immovable = true;
 
-				ground = platforms.create(0, game.world.height - 300, 'lm');
-				ground.scale.setTo(4, 1);
-				ground.body.immovable = true;
+				temp = platforms.create(0, game.world.height - 300, 'lm');
+				temp.scale.setTo(4, 1);
+				temp.body.immovable = true;
 
-				lolforms = game.add.group();
+				upforms = game.add.group();
 
-				platform1 = lolforms.create(500, game.world.height - 150, 'pl');
-				platform1.scale.setTo(1, 1);
-				platform1.body.bounce.setTo(1, 1);
-				platform1.body.collideWorldBounds = true;
+				temp = lolforms.create(500, game.world.height - 150, 'plup');
+				temp.scale.setTo(1, 1);
+				temp.body.bounce.setTo(1, 1);
+				temp.body.collideWorldBounds = true;
 
-				platform2 = lolforms.create(300, game.world.height - 450, 'pl');
-				platform2.scale.setTo(1, 1);
-				platform2.body.bounce.setTo(1, 1);
-				platform2.body.collideWorldBounds = true;
+				temp = lolforms.create(300, game.world.height - 450, 'plup');
+				temp.scale.setTo(1, 1);
+				temp.body.bounce.setTo(1, 1);
+				temp.body.collideWorldBounds = true;
 
 				player = game.add.sprite(32, game.world.height - 200, 'catsht');
 				player.animations.add('left', [0], 10, true);
@@ -66,8 +64,8 @@
 			}
 			function update() {
 				game.physics.collide(player, platforms);
-				game.physics.collide(player, lolforms);
-				game.physics.collide(platforms, lolforms);
+				game.physics.collide(player, upforms);
+				game.physics.collide(platforms, upforms);
 				if (cursors.left.isDown) {
 					player.body.velocity.x += -10;
 					player.animations.play('left');
