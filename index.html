@@ -50,73 +50,65 @@
 			function create() {
 				game.world.setBounds(0, 0, 800, 3200);
 				sky = game.add.sprite(0, 0, 'sky');
-				$('#progbar').css('width', 50+50/15*1+'%');
 
 				var temp;
 				temp = game.add.sprite(0, game.world.height - 600, 'int');
-				$('#progbar').css('width', 50+50/15*2+'%');
 
 				platforms = game.add.group();
-				$('#progbar').css('width', 50+50/15*3+'%');
 
 				temp = platforms.create(0, game.world.height - 50, 'gr');
 				temp.scale.setTo(8, 1);
 				temp.body.immovable = true;
-				$('#progbar').css('width', 50+50/15*4+'%');
 
 				temp = platforms.create(650, game.world.height - 150, 'lm');
 				temp.scale.setTo(1, 1);
 				temp.body.immovable = true;
 				temp.body.collideWorldBounds = true;
-				$('#progbar').css('width', 50+50/15*5+'%');
 
 				temp = platforms.create(500, game.world.height - 250, 'lm');
 				temp.scale.setTo(1, 1);
 				temp.body.immovable = true;
 				temp.body.collideWorldBounds = true;
-				$('#progbar').css('width', 50+50/15*6+'%');
 
 				temp = platforms.create(0, game.world.height - 350, 'lm');
 				temp.scale.setTo(4, 1);
 				temp.body.immovable = true;
-				$('#progbar').css('width', 50+50/15*7+'%');
 
 				temp = platforms.create(200, game.world.height - 450, 'lm');
 				temp.scale.setTo(1, 1);
 				temp.body.immovable = true;
 				temp.body.collideWorldBounds = true;
-				$('#progbar').css('width', 50+50/15*8+'%');
 
 				temp = platforms.create(50, game.world.height - 550, 'lm');
 				temp.scale.setTo(1, 1);
 				temp.body.immovable = true;
 				temp.body.collideWorldBounds = true;
-				$('#progbar').css('width', 50+50/15*9+'%');
 
 				temp = platforms.create(200, game.world.height - 650, 'lm');
 				temp.scale.setTo(1, 1);
 				temp.body.immovable = true;
 				temp.body.collideWorldBounds = true;
-				$('#progbar').css('width', 50+50/15*10+'%');
 
 				temp = platforms.create(400, game.world.height - 750, 'lm');
 				temp.scale.setTo(4, 1);
 				temp.body.immovable = true;
-				$('#progbar').css('width', 50+50/15*11+'%');
 
 				upforms = game.add.group();
 
-				temp = upforms.create(300, game.world.height - 850, 'plup');
+				temp = upforms.create(250, game.world.height - 850, 'plup');
 				temp.scale.setTo(1, 1);
 				temp.body.immovable = true;
 				temp.body.collideWorldBounds = true;
-				$('#progbar').css('width', 50+50/15*12+'%');
 
-				temp = upforms.create(200, game.world.height - 1100, 'plup');
+				temp = upforms.create(150, game.world.height - 1100, 'plup');
 				temp.scale.setTo(1, 1);
 				temp.body.immovable = true;
 				temp.body.collideWorldBounds = true;
-				$('#progbar').css('width', 50+50/15*13+'%');
+
+				temp = upforms.create(450, game.world.height - 1200, 'plup');
+				temp.scale.setTo(1, 1);
+				temp.body.immovable = true;
+				temp.body.collideWorldBounds = true;
 
 				player = game.add.sprite(32, game.world.height - 200, 'catsht');
 				player.animations.add('left', [0], 10, true);
@@ -124,10 +116,9 @@
 				player.body.bounce.setTo(0.04, 0.04);
 				player.body.collideWorldBounds = true;
 				player.body.gravity.y = 5;
-				$('#progbar').css('width', 50+50/15*14+'%');
 
 				game.camera.follow(player);
-				$('#progbar').css('width', 50+50/15*15+'%');
+				$('#progbar').css('width', '100%');
 				$('#startbutton').slideDown();
 			}
 			function unlock() {
