@@ -132,16 +132,16 @@
 				game.physics.collide(platforms, upforms);
 				player.body.velocity.x = player.body.velocity.x / 3;
 				if (cursors.left.isDown) {
-					player.body.velocity.x += -25;
+					player.body.velocity.x += -100;
 					player.animations.play('left');
 				}
 				if (cursors.right.isDown) {
-					player.body.velocity.x += 25;
+					player.body.velocity.x += 100;
 					player.animations.play('right');
 				}
 				if (cursors.up.isDown) {
 					if (player.body.touching.down)
-						player.body.velocity.y += -210;
+						player.body.velocity.y += -310;
 				}
 			}
 			function upShot(obj1, obj2) {
