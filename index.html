@@ -14,6 +14,12 @@
 			<div id="splash" style="width: 800px; height: 600px; background-image: url('bg.jpg'); background-size: 800px 600px; background-repeat: no-repeat;"><div style="width: 800px; height: 600px; background-image: url('cat-full.png'); background-size: 800px 600px; background-repeat: no-repeat;">
 				<div class="progress progress-striped active">
 					<div class="progress-bar" id="progbar" role="progressbar" style="width: 0%"></div>
+					<div class="page-header">
+						<h1>Guardian Cat <small>#ScratchTheCat</small></h1>
+						<p class="lead">You're not a good guardian cat. You let that little boy climb up. Now find him, will ya?</p>
+						<p class="lead">Controls: <span class="glyphicon glyphicon-arrow-left"></span><span class="glyphicon glyphicon-arrow-up"></span><span class="glyphicon glyphicon-arrow-down"></span><span class="glyphicon glyphicon-arrow-right"></span></p>
+						<button id="startbutton" type="button" onClick="unlock();" class="btn btn-primary btn-lg btn-block"  style="display:none;">Play</button>
+					</div>
 				</div>
 			</div></div>
 			<div id="gameframe" style="width: 800px; height: 600px; display:none;">
@@ -26,6 +32,7 @@
 			var cursors;
 			var upforms;
 			var sky;
+			var started = false;
 			function preload() {
 				game.load.spritesheet('catsht', 'cat.png', 75, 46);
 				$('#progbar').css('width', 100/12*1+'%');
@@ -49,7 +56,6 @@
 				temp = game.add.sprite(0, game.world.height - 600, 'int');
 				$('#progbar').css('width', 50+50/15*2+'%');
 
-				cursors = game.input.keyboard.createCursorKeys();
 				platforms = game.add.group();
 				$('#progbar').css('width', 50+50/15*3+'%');
 
@@ -122,26 +128,32 @@
 
 				game.camera.follow(player);
 				$('#progbar').css('width', 50+50/15*15+'%');
-
+				$('#startbutton').slideDown();
+			}
+			function unlock() {
 				$('#splash').slideUp();
 				$('#gameframe').slideDown();
+				cursors = game.input.keyboard.createCursorKeys();
+				started = true;
 			}
 			function update() {
-				game.physics.collide(player, platforms);
-				game.physics.collide(player, upforms, upShot, null, this);
-				game.physics.collide(platforms, upforms);
-				player.body.velocity.x = player.body.velocity.x / 3;
-				if (cursors.left.isDown) {
-					player.body.velocity.x += -100;
-					player.animations.play('left');
-				}
-				if (cursors.right.isDown) {
-					player.body.velocity.x += 100;
-					player.animations.play('right');
-				}
-				if (cursors.up.isDown) {
-					if (player.body.touching.down)
-						player.body.velocity.y += -310;
+				if (started) {
+					game.physics.collide(player, platforms);
+					game.physics.collide(player, upforms, upShot, null, this);
+					game.physics.collide(platforms, upforms);
+					player.body.velocity.x = player.body.velocity.x / 3;
+					if (cursors.left.isDown) {
+						player.body.velocity.x += -100;
+						player.animations.play('left');
+					}
+					if (cursors.right.isDown) {
+						player.body.velocity.x += 100;
+						player.animations.play('right');
+					}
+					if (cursors.up.isDown) {
+						if (player.body.touching.down)
+							player.body.velocity.y += -310;
+					}
 				}
 			}
 			function upShot(obj1, obj2) {
