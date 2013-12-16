@@ -17,12 +17,21 @@
 				</div>
 				<div class="jumbotron" style="opacity:0.7;width:100%;height:100%;">
 					<h1>Guardian Cat <small>#ScratchTheCat</small></h1>
-					<p class="lead">You're not a good guardian cat. You let that little boy climb up. Now find him, will ya?</p>
+					<p class="lead">So, they say you only get one guardian cat.</p>
+					<p class="lead">You're not a good guardian cat. How dare did you let that little boy climb up? Now find him, before his parents die of fear?!</p>
 					<p class="lead">Controls: <span class="glyphicon glyphicon-arrow-left"></span><span class="glyphicon glyphicon-arrow-up"></span><span class="glyphicon glyphicon-arrow-down"></span><span class="glyphicon glyphicon-arrow-right"></span></p>
 					<button id="startbutton" type="button" onClick="unlock();" class="btn btn-primary btn-lg btn-block"  style="display:none;">Play</button>
 				</div>
 			</div></div>
 			<div id="gameframe" style="width: 800px; height: 600px; display:none;">
+			</div>
+			<div id="gameend" style="width: 800px; height: 600px; display:none;">
+				<div class="jumbotron" style="width:100%;height:100%;">
+					<h1>Yay! You found him!</h1>
+					<p class="lead">Congratulations. You've proven you're a great, one in a kind guardian cat.</p>
+					<p class="lead">For your unbelievable effort in helping this kid out, we decided to grant you an official Guardian Cat of the Month badge, and promote you to the highest possible rank - Sleeper!</p>
+					<a class="btn btn-primary btn-lg" href="http://badg.us/en-US/badges/badge/Guardian-Cat-of-the-Month" type="button">Claim your badge</a>
+				</div>
 			</div>
 			<audio controls autoplay loop>
 				<source src="melo-d.mp3" type="audio/mpeg">
@@ -41,17 +50,19 @@
 			var music;
 			function preload() {
 				game.load.spritesheet('catsht', 'cat.png', 75, 46);
-				$('#progbar').css('width', 50/6*1+'%');
+				$('#progbar').css('width', 50/7*1+'%');
 				game.load.image('gr', 'gr.png');
-				$('#progbar').css('width', 50/6*2+'%');
+				$('#progbar').css('width', 50/7*2+'%');
 				game.load.image('int', 'int.png');
-				$('#progbar').css('width', 50/6*3+'%');
+				$('#progbar').css('width', 50/7*3+'%');
 				game.load.image('plup', 'plup.png');
-				$('#progbar').css('width', 50/6*4+'%');
+				$('#progbar').css('width', 50/7*4+'%');
 				game.load.image('sky', 'sky.png');
-				$('#progbar').css('width', 50/6*5+'%');
+				$('#progbar').css('width', 50/7*5+'%');
 				game.load.image('lm', 'lm.png');
-				$('#progbar').css('width', 50/6*6+'%');
+				$('#progbar').css('width', 50/7*6+'%');
+				game.load.image('boy', 'boy.png');
+				$('#progbar').css('width', 50+'%');
 			}
 			function create() {
 				music = game.add.audio('melo-d', 1, true);
@@ -126,6 +137,15 @@
 				temp.body.immovable = true;
 				temp.body.collideWorldBounds = true;
 
+				temp = platforms.create(400, game.world.height - 1650, 'lm');
+				temp.scale.setTo(2, 1);
+				temp.body.immovable = true;
+
+				boy = game.add.sprite(400, game.world.height - 1650 - 402, 'boy');
+				boy.body.bounce.setTo(0.1, 0.1);
+				boy.body.collideWorldBounds = true;
+				boy.body.gravity.y = 15;
+
 				player = game.add.sprite(32, game.world.height - 200, 'catsht');
 				player.animations.add('left', [0], 10, true);
 				player.animations.add('right', [1], 10, true);
@@ -147,6 +167,9 @@
 					game.physics.collide(player, platforms);
 					game.physics.collide(player, upforms, upShot, null, this);
 					game.physics.collide(platforms, upforms);
+					game.physics.collide(boy, platforms);
+					game.physics.collide(boy, upforms);
+					game.physics.overlap(player, boy, endGame, null, this);
 					player.body.velocity.x = player.body.velocity.x / 3;
 				if (started) {
 					if (cursors.left.isDown) {
@@ -166,6 +189,11 @@
 			function upShot(obj1, obj2) {
 				if (player.body.touching.down)
 					player.body.velocity.y += -450;
+			}
+			function endGame(obj1, obj2) {
+				$('#gameframe').slideUp();
+				$('#gameend').slideDown();
+				started = false;
 			}
 		</script>
 	</body>
