@@ -59,7 +59,7 @@
 				player = game.add.sprite(32, game.world.height - 200, 'cat');
 				player.body.bounce.setTo(0.04, 0.04);
 				player.body.collideWorldBounds = true;
-				player.body.gravity.y = 4;
+				player.body.gravity.y = 3;
 				game.camera.follow(player);
 			}
 			function update() {
@@ -74,7 +74,7 @@
 				}
 				if (cursors.up.isDown) {
 					if (player.body.touching.down)
-						player.body.velocity.y += -200;
+						player.body.velocity.y += -230;
 				}
 			}
 		</script>
