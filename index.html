@@ -24,6 +24,11 @@
 			</div></div>
 			<div id="gameframe" style="width: 800px; height: 600px; display:none;">
 			</div>
+			<audio controls>
+				<source src="melo-d.mp3" type="audio/mpeg">
+				<source src="melo-d.ogg" type="audio/ogg">
+			</audio>
+		</div>
 
 		<script type="text/javascript">
 			var game = new Phaser.Game(800, 600, Phaser.AUTO, document.getElementById('gameframe'), {preload: preload, create: create, update: update});
@@ -36,19 +41,17 @@
 			var music;
 			function preload() {
 				game.load.spritesheet('catsht', 'cat.png', 75, 46);
-				$('#progbar').css('width', 50/9*1+'%');
+				$('#progbar').css('width', 50/6*1+'%');
 				game.load.image('gr', 'gr.png');
-				$('#progbar').css('width', 50/9*2+'%');
+				$('#progbar').css('width', 50/6*2+'%');
 				game.load.image('int', 'int.png');
-				$('#progbar').css('width', 50/9*3+'%');
+				$('#progbar').css('width', 50/6*3+'%');
 				game.load.image('plup', 'plup.png');
-				$('#progbar').css('width', 50/9*4+'%');
+				$('#progbar').css('width', 50/6*4+'%');
 				game.load.image('sky', 'sky.png');
-				$('#progbar').css('width', 50/9*5+'%');
+				$('#progbar').css('width', 50/6*5+'%');
 				game.load.image('lm', 'lm.png');
-				$('#progbar').css('width', 50/9*6+'%');
-				game.load.audio('melo-d', 'melo-d.ogg');
-				$('#progbar').css('width', '50%');
+				$('#progbar').css('width', 50/6*6+'%');
 			}
 			function create() {
 				music = game.add.audio('melo-d', 1, true);
