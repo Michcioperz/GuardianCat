@@ -20,6 +20,7 @@
 				game.load.image('gr', 'gr.png');
 				game.load.image('pl', 'pl.png');
 				game.load.image('sky', 'sky.png');
+				game.load.image('lm', 'lm.png');
 			}
 			function create() {
 				game.world.setBounds(0, 0, 800, 3200);
@@ -33,6 +34,14 @@
 
 				ground = platforms.create(0, game.world.height - 50, 'gr');
 				ground.scale.setTo(8, 1);
+				ground.body.immovable = true;
+
+				ground = platforms.create(400, game.world.height - 500, 'lm');
+				ground.scale.setTo(4, 1);
+				ground.body.immovable = true;
+
+				ground = platforms.create(0, game.world.height - 300, 'lm');
+				ground.scale.setTo(4, 1);
 				ground.body.immovable = true;
 
 				lolforms = game.add.group();
