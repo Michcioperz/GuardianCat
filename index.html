@@ -49,10 +49,9 @@
 				$('#progbar').css('width', 50/9*6+'%');
 				game.load.audio('melo-d', ['melo-d.mp3', 'melo-d.ogg']);
 				$('#progbar').css('width', '50%');
-				music = game.add.audio('melo-d', 1, true);
-				music.play('',0,1,true);
 			}
 			function create() {
+				music = game.add.audio('melo-d', 1, true);
 				game.world.setBounds(0, 0, 800, 3200);
 				sky = game.add.sprite(0, 0, 'sky');
 
