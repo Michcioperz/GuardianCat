@@ -33,19 +33,24 @@
 			var upforms;
 			var sky;
 			var started = false;
+			var music;
 			function preload() {
 				game.load.spritesheet('catsht', 'cat.png', 75, 46);
-				$('#progbar').css('width', 100/12*1+'%');
+				$('#progbar').css('width', 50/9*1+'%');
 				game.load.image('gr', 'gr.png');
-				$('#progbar').css('width', 100/12*2+'%');
+				$('#progbar').css('width', 50/9*2+'%');
 				game.load.image('int', 'int.png');
-				$('#progbar').css('width', 100/12*3+'%');
+				$('#progbar').css('width', 50/9*3+'%');
 				game.load.image('plup', 'plup.png');
-				$('#progbar').css('width', 100/12*4+'%');
+				$('#progbar').css('width', 50/9*4+'%');
 				game.load.image('sky', 'sky.png');
-				$('#progbar').css('width', 100/12*5+'%');
+				$('#progbar').css('width', 50/9*5+'%');
 				game.load.image('lm', 'lm.png');
-				$('#progbar').css('width', 100/12*6+'%');
+				$('#progbar').css('width', 50/9*6+'%');
+				game.load.audio('melo-d', ['melo-d.mp3', 'melo-d.ogg']);
+				$('#progbar').css('width', '50%');
+				music = game.add.audio('melo-d', 1, true);
+				music.play('',0,0.8,true);
 			}
 			function create() {
 				game.world.setBounds(0, 0, 800, 3200);
