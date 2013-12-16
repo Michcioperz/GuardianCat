@@ -52,7 +52,7 @@
 				temp.scale.setTo(8, 1);
 				temp.body.immovable = true;
 
-				temp = platforms.create(400, game.world.height - 700, 'lm');
+				temp = platforms.create(400, game.world.height - 650, 'lm');
 				temp.scale.setTo(4, 1);
 				temp.body.immovable = true;
 
@@ -67,7 +67,7 @@
 				temp.body.immovable = true;
 				temp.body.collideWorldBounds = true;
 
-				temp = upforms.create(200, game.world.height - 500, 'plup');
+				temp = upforms.create(200, game.world.height - 450, 'plup');
 				temp.scale.setTo(1, 1);
 				temp.body.immovable = true;
 				temp.body.collideWorldBounds = true;
@@ -96,7 +96,7 @@
 				}
 				if (cursors.up.isDown) {
 					if (player.body.touching.down)
-						player.body.velocity.y += -200;
+						player.body.velocity.y += -210;
 				}
 			}
 			function upShot(obj1, obj2) {
