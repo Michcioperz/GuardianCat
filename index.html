@@ -65,7 +65,7 @@
 			function update() {
 				game.physics.collide(player, platforms);
 				game.physics.collide(player, upforms);
-				game.physics.collide(platforms, upforms, upShot);
+				game.physics.collide(platforms, upforms, upShot, null, this);
 				if (cursors.left.isDown) {
 					player.body.velocity.x += -10;
 					player.animations.play('left');
@@ -79,7 +79,7 @@
 						player.body.velocity.y += -230;
 				}
 			}
-			function upShot() {
+			function upShot(obj1, obj2) {
 				player.body.velocity.y += -300;
 			}
 		</script>
