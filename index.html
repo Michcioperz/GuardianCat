@@ -186,15 +186,16 @@
 					if (cursors.up.isDown) {
 						if (player.body.touching.down) {
 							player.body.velocity.y += 310;
-							game.add.tween(player).to({ angle: 110 }, 1000, Phaser.Easing.Quadratic.InOut, true, 500);
+							game.add.tween(player).to({ angle: 90 }, 1000, Phaser.Easing.Quadratic.InOut, true, 500);
 						}
 					}
 				}
 			}
 			function upShot(obj1, obj2) {
-				if (player.body.touching.down)
+				if (player.body.touching.down) {
 					player.body.velocity.y += -450;
 					hjsound.play('', 0, 1);
+				}
 			}
 			function endGame(obj1, obj2) {
 				$('#gameframe').slideUp();
