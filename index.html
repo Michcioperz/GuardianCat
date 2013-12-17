@@ -48,7 +48,7 @@
 			var upforms;
 			var sky;
 			var started = false;
-			var music;
+			var hjsound;
 			function preload() {
 				game.load.spritesheet('catsht', 'cat.png', 75, 46);
 				$('#progbar').css('width', 50/7*1+'%');
@@ -64,9 +64,10 @@
 				$('#progbar').css('width', 50/7*6+'%');
 				game.load.image('boy', 'boy.png');
 				$('#progbar').css('width', 50+'%');
+				game.load.audio('hj', 'superjump.ogg');
 			}
 			function create() {
-				music = game.add.audio('melo-d', 1, true);
+				hjsound = game.add.audio('hj', 1, false);
 				game.world.setBounds(0, 0, 800, 3200);
 				sky = game.add.sprite(0, 0, 'sky');
 
@@ -190,6 +191,7 @@
 			function upShot(obj1, obj2) {
 				if (player.body.touching.down)
 					player.body.velocity.y += -450;
+					hjsound.play('', 0, 1);
 			}
 			function endGame(obj1, obj2) {
 				$('#gameframe').slideUp();
